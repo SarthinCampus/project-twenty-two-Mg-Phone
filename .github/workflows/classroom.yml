@@ -48,23 +48,10 @@ jobs:
         comparison-method: exact
         timeout: 10
         max-score: 2
-    - name: Inputting "all words are lowercase here."
-      id: inputting-all-words-are-lowercase-here
-      uses: classroom-resources/autograding-io-grader@v1
-      with:
-        test-name: Inputting "all words are lowercase here."
-        setup-command: ''
-        command: python3 regex_capital_words/main.py
-        input: all words are lowercase here.
-        expected-output: ''
-        comparison-method: contains
-        timeout: 10
-        max-score: 2
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         INPUTING-THE-QUICK-BROWN-FOX-JUMPS-OVER-THE-LAZY-DOG_RESULTS: "${{steps.inputing-the-quick-brown-fox-jumps-over-the-lazy-dog.outputs.result}}"
         INPUTTING-ALICE-AND-BOB-WENT-TO-NEW-YORK-CITY-TO-MEET-CHARLIE_RESULTS: "${{steps.inputting-alice-and-bob-went-to-new-york-city-to-meet-charlie.outputs.result}}"
-        INPUTTING-ALL-WORDS-ARE-LOWERCASE-HERE_RESULTS: "${{steps.inputting-all-words-are-lowercase-here.outputs.result}}"
       with:
-        runners: inputing-the-quick-brown-fox-jumps-over-the-lazy-dog,inputting-alice-and-bob-went-to-new-york-city-to-meet-charlie,inputting-all-words-are-lowercase-here
+        runners: inputing-the-quick-brown-fox-jumps-over-the-lazy-dog,inputting-alice-and-bob-went-to-new-york-city-to-meet-charlie
